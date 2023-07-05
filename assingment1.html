@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fun Game Website</title>
+  <style>
+    body {
+      text-align: center;
+      background-color: aqua;
+      color: white;
+      font-size: 50px;
+    }
+    
+    #result {
+      font-size: 300px;
+      margin-top: 200px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Fun Game</h1>
+  <h2>Match the Number!</h2>
+  
+  <div id="result"></div>
+  
+  <script>
+    var number = 1; // Initial number
+    
+    // Function to update the displayed number every 100 milliseconds
+    setInterval(function() {
+      var randomNumber = Math.floor(Math.random() * 6) + 1;
+      document.getElementById("result").textContent = randomNumber;
+      number = randomNumber;
+    }, 100);
+    
+    // Function to check if the button clicked matches the displayed number
+    function checkNumber(clickedNumber) {
+      if (clickedNumber === number) {
+        document.getElementById("result").textContent = "You Win!";
+        document.body.style.background = "linear-gradient(to right, red, blue, green)";
+      } else {
+        alert("You lost!");
+      }
+    }
+  </script>
+  
+  <div>
+    <button onclick="checkNumber(1)">1</button>
+    <button onclick="checkNumber(2)">2</button>
+    <button onclick="checkNumber(3)">3</button>
+    <button onclick="checkNumber(4)">4</button>
+    <button onclick="checkNumber(5)">5</button>
+    <button onclick="checkNumber(6)">6</button>
+  </div>
+</body>
+</html>
